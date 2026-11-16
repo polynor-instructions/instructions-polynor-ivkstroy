@@ -1,657 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Инструкции по применению, технические паспорта и видеоруководства по продукции Polynor.">
+  <meta name="theme-color" content="#f5f2ed">
   <title>Polynor — Инструкции и технические документы</title>
-  <meta name="description" content="Инструкции и технические документы Polynor." />
-  <style>
-    :root {
-      --red: #e8281e;
-      --red-dark: #b81e15;
-      --red-glow: rgba(232,40,30,0.18);
-      --black: #0e0e0e;
-      --dark: #181818;
-      --card: #1f1f1f;
-      --card-border: #2e2e2e;
-      --text: #f0ede8;
-      --muted: #888;
-      --accent: #ff5a4e;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--black);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ── NOISE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.4;
-    }
-
-    /* ── HEADER ── */
-    header {
-      position: relative;
-      z-index: 10;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      background: var(--dark);
-      border-bottom: 1px solid var(--card-border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      height: 72px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      clip-path: polygon(0 0, 85% 0, 100% 100%, 15% 100%);
-      flex-shrink: 0;
-    }
-
-    .logo-icon svg { width: 22px; height: 22px; fill: #fff; }
-
-    .logo-text {
-      font-family: Impact, 'Arial Narrow', sans-serif;
-      font-size: 1.9rem;
-      letter-spacing: 0.08em;
-      color: var(--text);
-      line-height: 1;
-    }
-
-    .header-badge {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid var(--card-border);
-      padding: 4px 10px;
-      border-radius: 2px;
-      white-space: nowrap;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      z-index: 2;
-      padding: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 5vw, 3.5rem);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
-      align-items: center;
-      gap: clamp(1rem, 4vw, 3rem);
-    }
-
-    .hero-copy { position: relative; z-index: 1; }
-    .hero-product {
-      width: 100%;
-      max-width: 360px;
-      justify-self: center;
-      height: auto;
-      filter: drop-shadow(0 18px 28px rgba(0,0,0,0.38));
-    }
-
-    .hero::after {
-      content: 'POLYNOR';
-      position: absolute;
-      right: -2vw;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: Impact, 'Arial Narrow', sans-serif;
-      font-size: clamp(6rem, 18vw, 16rem);
-      color: rgba(255,255,255,0.02);
-      letter-spacing: 0.05em;
-      pointer-events: none;
-      white-space: nowrap;
-      line-height: 1;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 1.2rem;
-      font-weight: 600;
-    }
-
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 2px;
-      background: var(--red);
-    }
-
-    .hero h1 {
-      font-family: Impact, 'Arial Narrow', sans-serif;
-      font-size: clamp(2.4rem, 7vw, 5.5rem);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-      max-width: 720px;
-    }
-
-    .hero h1 span { color: var(--red); }
-
-    .hero-sub {
-      margin-top: 1.4rem;
-      font-size: clamp(0.9rem, 2vw, 1.05rem);
-      color: var(--muted);
-      max-width: 480px;
-      line-height: 1.6;
-    }
-
-    /* ── DIVIDER ── */
-    .divider {
-      position: relative;
-      z-index: 2;
-      height: 2px;
-      margin: 0 clamp(1.5rem, 5vw, 4rem);
-      background: linear-gradient(90deg, var(--red) 0%, transparent 100%);
-    }
-
-    /* ── GRID ── */
-    .grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-      gap: 1px;
-      background: var(--card-border);
-      margin: 0;
-    }
-
-    /* ── CARD ── */
-    .card {
-      background: var(--card);
-      padding: clamp(1.5rem, 4vw, 2.2rem);
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: background 0.2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 3px;
-      height: 0;
-      background: var(--red);
-      transition: height 0.3s ease;
-    }
-
-    .card:hover {
-      background: #252525;
-    }
-
-    .card:hover::before {
-      height: 100%;
-    }
-
-    .card-num {
-      font-family: Impact, 'Arial Narrow', sans-serif;
-      font-size: 3rem;
-      line-height: 1;
-      color: rgba(232,40,30,0.12);
-      position: absolute;
-      right: 1.5rem;
-      top: 1.2rem;
-      transition: color 0.2s;
-    }
-
-    .card:hover .card-num { color: rgba(232,40,30,0.22); }
-
-    .card-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--red-glow);
-      border: 1px solid rgba(232,40,30,0.3);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .card-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-
-    .card-title {
-      font-size: clamp(1rem, 2.5vw, 1.15rem);
-      font-weight: 700;
-      line-height: 1.3;
-      padding-right: 3rem;
-    }
-
-    .card-desc {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.55;
-      flex-grow: 1;
-    }
-
-    .card-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: auto;
-      padding-top: 0.4rem;
-    }
-
-    .action-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      min-height: 42px;
-      padding: 0.7rem 0.9rem;
-      border: 1px solid var(--card-border);
-      border-radius: 4px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.18s ease, border-color 0.18s ease;
-    }
-
-    .action-primary { background: var(--red); border-color: var(--red); color: #fff; }
-    .action-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
-    .action-primary:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-    .catalog-tools {
-      position: relative;
-      z-index: 2;
-      padding: 1.5rem clamp(1.5rem, 5vw, 4rem) 1.2rem;
-      background: var(--black);
-    }
-    .search-label { display: block; margin-bottom: 0.6rem; font-size: 0.82rem; font-weight: 700; }
-    .tools-row { display: flex; gap: 0.75rem; max-width: 760px; }
-    .tools-row input {
-      width: 100%; min-width: 0; min-height: 44px; padding: 0.7rem 0.85rem;
-      color: var(--text); background: #1b1b1b; border: 1px solid #444; border-radius: 4px;
-      font: inherit; font-size: 0.9rem;
-    }
-    .tools-row input:focus-visible, .action-btn:focus-visible, .logo:focus-visible, .market-btn:focus-visible, .footer-left a:focus-visible {
-      outline: 2px solid var(--accent); outline-offset: 3px;
-    }
-    .catalog-count { margin-top: 0.65rem; color: var(--muted); font-size: 0.78rem; }
-    .card[hidden] { display: none !important; }
-
-    /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 2;
-      border-top: 1px solid var(--card-border);
-      padding: 1.8rem clamp(1.5rem, 5vw, 4rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .footer-left a { color: var(--red); text-decoration: none; }
-    .footer-left a:hover { text-decoration: underline; }
-
-    .footer-right {
-      font-size: 0.72rem;
-      color: #444;
-      letter-spacing: 0.05em;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-label { animation: fadeUp 0.5s ease both; }
-    .hero h1    { animation: fadeUp 0.55s 0.1s ease both; }
-    .hero-sub   { animation: fadeUp 0.55s 0.2s ease both; }
-
-    .card { animation: fadeUp 0.35s ease both; }
-    .card:nth-child(7) { animation-delay: 0.67s; }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-    }
-
-    .card:nth-child(1) { animation-delay: 0.25s; }
-    .card:nth-child(2) { animation-delay: 0.32s; }
-    .card:nth-child(3) { animation-delay: 0.39s; }
-    .card:nth-child(4) { animation-delay: 0.46s; }
-    .card:nth-child(5) { animation-delay: 0.53s; }
-    .card:nth-child(6) { animation-delay: 0.60s; }
-
-    /* ── MARKETS ── */
-    .markets {
-      position: relative;
-      z-index: 2;
-      padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 4rem);
-      background: #161616;
-    }
-
-    .markets-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-      font-weight: 600;
-    }
-
-    .markets-row {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .market-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 22px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .market-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-
-    .market-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-
-    .market-btn .market-sub {
-      font-size: 0.7rem;
-      font-weight: 400;
-      opacity: 0.7;
-      margin-left: 2px;
-    }
-
-    .market-btn span:not(.market-sub) { line-height: 1; }
-
-    .wb {
-      background: #cb11ab;
-      color: #fff;
-    }
-
-    .wb:hover { background: #b50e99; }
-
-    .ozon {
-      background: #005bff;
-      color: #fff;
-    }
-
-    .ozon:hover { background: #0047cc; }
-
-    /* ── MOBILE ── */
-    @media (max-width: 640px) {
-      .hero { grid-template-columns: 1fr; gap: 1.5rem; }
-      .hero-product { width: min(66%, 250px); max-height: 230px; }
-      .hero h1 { font-size: clamp(2.5rem, 12vw, 4rem); }
-      .header-badge { display: none; }
-      footer { flex-direction: column; align-items: flex-start; }
-      .tools-row { flex-direction: column; }
-      .card-title { padding-right: 2rem; }
-      .markets-row { flex-direction: column; align-items: stretch; }
-      .market-btn { justify-content: flex-start; }
-    }
-
-    @media (max-width: 360px) {
-      header { padding-inline: 1rem; }
-      .hero, .catalog-tools, .markets, footer { padding-left: 1rem; padding-right: 1rem; }
-      .card { padding: 1.25rem; }
-      .card-num { right: 1rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="catalog.js" defer></script>
 </head>
 <body>
-
-  <header>
-    <a class="logo" href="https://www.polynor.ru" target="_blank" rel="noopener">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 6h18v3H3zM3 11h12v3H3zM3 16h8v3H3z"/></svg>
-      </div>
-      <span class="logo-text">Polynor</span>
-    </a>
-    <span class="header-badge">Технические инструкции</span>
+  <a class="skip" href="#catalog">Перейти к инструкциям</a>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" href="https://www.polynor.ru" target="_blank" rel="noopener noreferrer">
+        <img src="polynor-logo.png" alt="Polynor — официальный сайт" width="141" height="80">
+      </a>
+      <nav aria-label="Навигация">
+        <a href="#catalog">Инструкции</a>
+        <a href="#stores">Где купить</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-copy">
-      <div class="hero-label">Техническая документация</div>
-      <h1>Инструкции<br>по <span>применению</span></h1>
-      <p class="hero-sub">Технические описания и руководства по использованию продукции Polynor. Найдите нужный материал и нажмите «Открыть».</p>
-    </div>
-    <svg class="hero-product" viewBox="0 0 340 360" role="img" aria-label="Иллюстрация баллона монтажной пены Polynor" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="canBody" x1="0" x2="1"><stop offset="0" stop-color="#bdbdbd"/><stop offset=".22" stop-color="#f2f2f2"/><stop offset=".55" stop-color="#d9d9d9"/><stop offset="1" stop-color="#858585"/></linearGradient>
-        <linearGradient id="canTop" x1="0" x2="1"><stop offset="0" stop-color="#555"/><stop offset=".5" stop-color="#222"/><stop offset="1" stop-color="#444"/></linearGradient>
-      </defs>
-      <ellipse cx="170" cy="329" rx="98" ry="13" fill="#000" opacity=".3"/>
-      <g transform="translate(75 16) rotate(5 95 160)">
-        <rect x="93" y="5" width="46" height="31" rx="5" fill="#242424"/>
-        <rect x="101" y="0" width="30" height="12" rx="3" fill="#444"/>
-        <path d="M87 32 Q87 24 98 24 H138 Q149 24 149 36 L160 64 V285 Q160 303 143 303 H82 Q65 303 65 285 V64 Z" fill="url(#canBody)" stroke="#777" stroke-width="1.5"/>
-        <path d="M69 75 H156 V224 H69 Z" fill="#e8281e"/>
-        <path d="M69 224 H156 V268 H69 Z" fill="#202020"/>
-        <text x="112" y="117" fill="#fff" font-size="22" font-family="Arial, sans-serif" font-weight="800" text-anchor="middle" letter-spacing="1">POLYNOR</text>
-        <path d="M82 139 H143" stroke="#fff" stroke-width="2" opacity=".9"/>
-        <text x="112" y="162" fill="#fff" font-size="10" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">MONTAGE FOAM</text>
-        <text x="112" y="185" fill="#fff" font-size="8" font-family="Arial, sans-serif" text-anchor="middle">PROFESSIONAL</text>
-        <path d="M83 244 L112 233 L141 244 L112 255 Z" fill="#e8281e"/>
-        <path d="M74 282 H151" stroke="#777" stroke-width="1"/>
-        <rect x="82" y="292" width="61" height="7" rx="3" fill="#777" opacity=".7"/>
-        <path d="M78 80 V260" stroke="#fff" stroke-width="3" opacity=".55"/>
-      </g>
-      <path d="M228 57 l13 -13 M238 72 l19 -4 M230 39 l2 -15" stroke="#e8281e" stroke-width="3" stroke-linecap="round" opacity=".8"/>
-      <circle cx="70" cy="72" r="4" fill="#e8281e"/><circle cx="57" cy="91" r="2" fill="#ff5a4e"/>
-    </svg>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="catalog-tools" aria-label="Поиск инструкций">
-    <label class="search-label" for="catalog-search">Найти инструкцию</label>
-    <div class="tools-row">
-      <input id="catalog-search" type="search" placeholder="Например, очиститель или клей…" autocomplete="off" />
-    </div>
-    <p id="catalog-count" class="catalog-count" aria-live="polite">7 материалов</p>
-  </section>
-
-  <div class="grid" id="catalog-grid">
-
-    <!-- 1 -->
-    <article class="card" data-search="клей thermoblock — инструкция технический паспорт и руководство по применению теплоизоляционных блоков polynor thermoblock.">
-
-      <span class="card-num">01</span>
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+  <main>
+    <section class="shell hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Техническая документация</p>
+        <h1 id="page-title">Инструкции<br>по <span>применению</span></h1>
+        <p class="intro">Руководства, технические паспорта и видео по применению продукции Polynor.</p>
+        <a class="hero-link" href="#catalog">Найти инструкцию <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="card-title">Клей THERMOBLOCK — Инструкция</div>
-      <div class="card-desc">Технический паспорт и руководство по применению теплоизоляционных блоков Polynor Thermoblock.</div>
-
-      <div class="card-actions">
-        <a class="action-btn action-primary" href="https://www.polynor.ru/uploads/files/products/termoblock_tds_instryk.jpg" target="_blank" rel="noopener noreferrer">Открыть <span aria-hidden="true">↗</span></a>
+      <div class="hero-visual">
+        <img src="polynor-insulation.png" alt="Баллон напыляемого утеплителя Polynor" width="104" height="371" fetchpriority="high">
       </div>
-    </article>
+    </section>
 
-    <!-- 2 -->
-    <article class="card" data-search="очиститель — инструкция руководство по применению очистителя polynor: поверхности, нормы расхода, меры безопасности.">
-
-      <span class="card-num">02</span>
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+    <section class="shell catalog" id="catalog" tabindex="-1" aria-labelledby="catalog-title">
+      <div class="section-head">
+        <h2 id="catalog-title">Каталог инструкций</h2>
+        <p id="catalog-count" role="status">7 материалов</p>
       </div>
-      <div class="card-title">Очиститель — Инструкция</div>
-      <div class="card-desc">Руководство по применению очистителя Polynor: поверхности, нормы расхода, меры безопасности.</div>
-
-      <div class="card-actions">
-        <a class="action-btn action-primary" href="https://www.polynor.ru/uploads/files/products/cleaner.pdf" target="_blank" rel="noopener noreferrer">Открыть <span aria-hidden="true">↗</span></a>
+      <div class="catalog-tools" id="catalog-tools" hidden>
+        <div class="search">
+          <label for="catalog-search">Поиск по каталогу</label>
+          <div class="search-field">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
+            <input id="catalog-search" type="search" placeholder="Например, очиститель или клей" autocomplete="off">
+          </div>
+        </div>
+        <div class="filters" role="group" aria-label="Тип материала">
+          <button type="button" data-filter="all" aria-pressed="true">Все</button>
+          <button type="button" data-filter="document" aria-pressed="false">Документы</button>
+          <button type="button" data-filter="video" aria-pressed="false">Видео</button>
+        </div>
       </div>
-    </article>
-
-    <!-- 3 -->
-    <article class="card" data-search="пена-цемент — инструкция технический паспорт polynor m-500: состав, физико-механические показатели, условия применения.">
-
-      <span class="card-num">03</span>
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <div class="grid" id="catalog-grid">
+        <article class="card" data-type="document" data-search="клей thermoblock — инструкция технический паспорт и руководство по применению теплоизоляционных блоков polynor thermoblock.">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div class="card-body">
+            <h3>Клей THERMOBLOCK — Инструкция</h3>
+            <p>Технический паспорт и руководство по применению теплоизоляционных блоков Polynor Thermoblock.</p>
+            <div class="card-actions">
+              <span class="format">JPG</span>
+              <a href="https://www.polynor.ru/uploads/files/products/termoblock_tds_instryk.jpg" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть инструкцию: Клей THERMOBLOCK — Инструкция (в новой вкладке)">
+                Открыть инструкцию <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-type="document" data-search="очиститель — инструкция руководство по применению очистителя polynor: поверхности, нормы расхода, меры безопасности.">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
+          <div class="card-body">
+            <h3>Очиститель — Инструкция</h3>
+            <p>Руководство по применению очистителя Polynor: поверхности, нормы расхода, меры безопасности.</p>
+            <div class="card-actions">
+              <span class="format">PDF</span>
+              <a href="https://www.polynor.ru/uploads/files/products/cleaner.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть инструкцию: Очиститель — Инструкция (в новой вкладке)">
+                Открыть инструкцию <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-type="document" data-search="пена-цемент — инструкция технический паспорт polynor m-500: состав, физико-механические показатели, условия применения.">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="card-body">
+            <h3>Пена-Цемент — Инструкция</h3>
+            <p>Технический паспорт Polynor M-500: состав, физико-механические показатели, условия применения.</p>
+            <div class="card-actions">
+              <span class="format">PDF</span>
+              <a href="https://www.polynor.ru/uploads/files/products/tds%20%D0%BF%D0%B5%D0%BD%D0%B0-%D1%86%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20polynor%20M-500.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть инструкцию: Пена-Цемент — Инструкция (в новой вкладке)">
+                Открыть инструкцию <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-type="document" data-search="утеплитель polynor — инструкция технический паспорт полиуретанового утеплителя polynor: характеристики, показатели теплопроводности.">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg></div>
+          <div class="card-body">
+            <h3>Утеплитель POLYNOR — Инструкция</h3>
+            <p>Технический паспорт полиуретанового утеплителя Polynor: характеристики, показатели теплопроводности.</p>
+            <div class="card-actions">
+              <span class="format">PDF</span>
+              <a href="https://www.polynor.ru/uploads/files/products/polynor%20tds.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть инструкцию: Утеплитель POLYNOR — Инструкция (в новой вкладке)">
+                Открыть инструкцию <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-type="video" data-search="клей 60 секунд — инструкция видеоруководство по быстрому применению продукта polynor за 60 секунд. открывается на яндекс диске.">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg></div>
+          <div class="card-body">
+            <h3>Клей 60 СЕКУНД — Инструкция</h3>
+            <p>Видеоруководство по быстрому применению продукта Polynor за 60 секунд. Открывается на Яндекс Диске.</p>
+            <div class="card-actions">
+              <span class="format">Видео</span>
+              <a href="https://disk.yandex.ru/i/o5ska-nbtdMy5Q" target="_blank" rel="noopener noreferrer"
+                 aria-label="Смотреть видео: Клей 60 СЕКУНД — Инструкция (в новой вкладке)">
+                Смотреть видео <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-type="document" data-search="клей fixo — инструкция полное руководство по применению монтажного клея-пены polynor fixo: основания, расход, ограничения.">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <div class="card-body">
+            <h3>Клей FIXO — Инструкция</h3>
+            <p>Полное руководство по применению монтажного клея-пены Polynor Fixo: основания, расход, ограничения.</p>
+            <div class="card-actions">
+              <span class="format">PDF</span>
+              <a href="https://www.polynor.ru/uploads/files/products/fixo.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть инструкцию: Клей FIXO — Инструкция (в новой вкладке)">
+                Открыть инструкцию <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-type="document" data-search="инструкция для пистолета для пены пистолет монтажная пена">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M3 7h11l3 3-4 4-3-3H3z"/><path d="M13 14l-2 7M17 10l4-4M5 14v5h5"/></svg></div>
+          <div class="card-body">
+            <h3>Пистолет для монтажной пены — Инструкция</h3>
+            <p>Инструкция по использованию пистолета для монтажной пены. Документ размещён на Google Drive.</p>
+            <div class="card-actions">
+              <span class="format">Google Drive</span>
+              <a href="https://drive.google.com/file/d/1KIV4ndA9Bevt9zpJBy5jEEWMaS9DdbQb/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть инструкцию: Пистолет для монтажной пены — Инструкция (в новой вкладке)">
+                Открыть инструкцию <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="card-title">Пена-Цемент — Инструкция</div>
-      <div class="card-desc">Технический паспорт Polynor M-500: состав, физико-механические показатели, условия применения.</div>
-
-      <div class="card-actions">
-        <a class="action-btn action-primary" href="https://www.polynor.ru/uploads/files/products/tds%20%D0%BF%D0%B5%D0%BD%D0%B0-%D1%86%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20polynor%20M-500.pdf" target="_blank" rel="noopener noreferrer">Открыть <span aria-hidden="true">↗</span></a>
+      <div class="empty" id="catalog-empty" hidden>
+        <p>Подходящих инструкций нет.</p>
+        <button type="button" id="catalog-reset">Сбросить поиск и фильтр</button>
       </div>
-    </article>
+    </section>
 
-    <!-- 4 -->
-    <article class="card" data-search="утеплитель polynor — инструкция технический паспорт полиуретанового утеплителя polynor: характеристики, показатели теплопроводности.">
-
-      <span class="card-num">04</span>
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+    <section class="shell stores" id="stores" aria-labelledby="stores-title">
+      <div>
+        <h2 id="stores-title">Где купить</h2>
+        <p>ИВК-Строй на маркетплейсах</p>
       </div>
-      <div class="card-title">Утеплитель POLYNOR — Инструкция</div>
-      <div class="card-desc">Технический паспорт полиуретанового утеплителя Polynor: характеристики, показатели теплопроводности.</div>
-
-      <div class="card-actions">
-        <a class="action-btn action-primary" href="https://www.polynor.ru/uploads/files/products/polynor%20tds.pdf" target="_blank" rel="noopener noreferrer">Открыть <span aria-hidden="true">↗</span></a>
+      <div class="store-links">
+        <a href="https://www.wildberries.ru/seller/4220037" target="_blank" rel="noopener noreferrer">Wildberries <span aria-hidden="true">↗</span></a>
+        <a href="https://ozon.ru/s/ivk-stroy" target="_blank" rel="noopener noreferrer">Ozon <span aria-hidden="true">↗</span></a>
       </div>
-    </article>
+    </section>
+  </main>
 
-    <!-- 5 -->
-    <article class="card" data-search="клей 60 секунд — инструкция видеоруководство по быстрому применению продукта polynor за 60 секунд. открывается на яндекс диске.">
-
-      <span class="card-num">05</span>
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
-      </div>
-      <div class="card-title">Клей 60 СЕКУНД — Инструкция</div>
-      <div class="card-desc">Видеоруководство по быстрому применению продукта Polynor за 60 секунд. Открывается на Яндекс Диске.</div>
-
-      <div class="card-actions">
-        <a class="action-btn action-primary" href="https://disk.yandex.ru/i/o5ska-nbtdMy5Q" target="_blank" rel="noopener noreferrer">Смотреть видео <span aria-hidden="true">↗</span></a>
-      </div>
-    </article>
-
-    <!-- 6 -->
-    <article class="card" data-search="клей fixo — инструкция полное руководство по применению монтажного клея-пены polynor fixo: основания, расход, ограничения.">
-
-      <span class="card-num">06</span>
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-      </div>
-      <div class="card-title">Клей FIXO — Инструкция</div>
-      <div class="card-desc">Полное руководство по применению монтажного клея-пены Polynor Fixo: основания, расход, ограничения.</div>
-
-      <div class="card-actions">
-        <a class="action-btn action-primary" href="https://www.polynor.ru/uploads/files/products/fixo.pdf" target="_blank" rel="noopener noreferrer">Открыть <span aria-hidden="true">↗</span></a>
-      </div>
-    </article>
-
-    <!-- 7 -->
-    <article class="card" data-search="инструкция для пистолета для пены пистолет монтажная пена">
-      <span class="card-num">07</span>
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 7h11l3 3-4 4-3-3H3z"/><path d="M13 14l-2 7M17 10l4-4M5 14v5h5"/></svg>
-      </div>
-      <div class="card-title">Пистолет для монтажной пены — Инструкция</div>
-      <div class="card-desc">Инструкция по использованию пистолета для монтажной пены. Документ размещён на Google Drive.</div>
-      <div class="card-actions">
-        <a class="action-btn action-primary" href="https://drive.google.com/file/d/1KIV4ndA9Bevt9zpJBy5jEEWMaS9DdbQb/view?usp=sharing" target="_blank" rel="noopener noreferrer">Открыть <span aria-hidden="true">↗</span></a>
-      </div>
-    </article>
-
-  </div>
-
-  <div class="divider"></div>
-
-  <section class="markets">
-    <div class="markets-label">Купить на маркетплейсах</div>
-    <div class="markets-row">
-      <a class="market-btn wb" href="https://www.wildberries.ru/seller/4220037" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span>Wildberries</span>
-        <span class="market-sub">ИВК-Строй</span>
-      </a>
-      <a class="market-btn ozon" href="https://ozon.ru/s/ivk-stroy" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span>Ozon</span>
-        <span class="market-sub">ИВК-Строй</span>
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-left">
-      © 2026 <a href="https://www.polynor.ru" target="_blank" rel="noopener noreferrer">polynor.ru</a> — Официальный сайт
-    </div>
-    <div class="footer-right">Все документы являются собственностью Polynor</div>
+  <footer class="shell footer">
+    <span>© 2026 <a href="https://www.polynor.ru" target="_blank" rel="noopener noreferrer">polynor.ru</a> — Официальный сайт</span>
+    <span>Все документы являются собственностью Polynor</span>
   </footer>
-
-  <script>
-    (function () {
-      var search = document.getElementById('catalog-search');
-      var grid = document.getElementById('catalog-grid');
-      var count = document.getElementById('catalog-count');
-      if (!search || !grid || !count) return;
-      var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
-      function updateCatalog() {
-        var query = search.value.trim().toLocaleLowerCase('ru');
-        var visible = 0;
-        cards.forEach(function (card) {
-          var text = (card.getAttribute('data-search') || card.textContent || '').toLocaleLowerCase('ru');
-          var show = text.indexOf(query) !== -1;
-          card.hidden = !show;
-          if (show) visible += 1;
-        });
-        count.textContent = query ? ('Найдено: ' + visible + ' из ' + cards.length) : (cards.length + ' материалов');
-      }
-      search.addEventListener('input', updateCatalog);
-      updateCatalog();
-    }());
-  </script>
-
 </body>
 </html>
