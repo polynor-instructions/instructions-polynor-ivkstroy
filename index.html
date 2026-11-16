@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Инструкции по применению, технические паспорта и видеоруководства по продукции Polynor.">
+  <meta name="description" content="Инструкции по применению, технические паспорта и видео по продукции Polynor.">
   <meta name="theme-color" content="#f5f2ed">
   <title>Polynor — Инструкции и технические документы</title>
+  <link rel="preload" href="cormorant-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="source-sans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="polynor-logo.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <script src="catalog.js" defer></script>
 </head>
@@ -18,7 +21,8 @@
       </a>
       <nav aria-label="Навигация">
         <a href="#catalog">Инструкции</a>
-        <a href="#stores">Где купить</a>
+        <a href="#videos">Видео</a>
+        <a href="#new">Новинки</a>
       </nav>
     </div>
   </header>
@@ -28,7 +32,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Техническая документация</p>
         <h1 id="page-title">Инструкции<br>по <span>применению</span></h1>
-        <p class="intro">Руководства, технические паспорта и видео по применению продукции Polynor.</p>
+        <p class="intro">Инструкции в PDF, технические паспорта и видео по применению продукции Polynor.</p>
         <a class="hero-link" href="#catalog">Найти инструкцию <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-visual">
@@ -39,7 +43,7 @@
     <section class="shell catalog" id="catalog" tabindex="-1" aria-labelledby="catalog-title">
       <div class="section-head">
         <h2 id="catalog-title">Каталог инструкций</h2>
-        <p id="catalog-count" role="status">7 материалов</p>
+        <p id="catalog-count" role="status">7 позиций</p>
       </div>
       <div class="catalog-tools" id="catalog-tools" hidden>
         <div class="search">
@@ -49,108 +53,103 @@
             <input id="catalog-search" type="search" placeholder="Например, очиститель или клей" autocomplete="off">
           </div>
         </div>
-        <div class="filters" role="group" aria-label="Тип материала">
+        <div class="filters" role="group" aria-label="Раздел каталога">
           <button type="button" data-filter="all" aria-pressed="true">Все</button>
-          <button type="button" data-filter="document" aria-pressed="false">Документы</button>
-          <button type="button" data-filter="video" aria-pressed="false">Видео</button>
+          <button type="button" data-filter="adhesives" aria-pressed="false">Клеи</button>
+          <button type="button" data-filter="insulation" aria-pressed="false">Утеплитель</button>
+          <button type="button" data-filter="tools" aria-pressed="false">Уход и инструмент</button>
         </div>
       </div>
       <div class="grid" id="catalog-grid">
-        <article class="card" data-type="document" data-search="клей thermoblock — инструкция технический паспорт и руководство по применению теплоизоляционных блоков polynor thermoblock.">
+        <article class="card" data-type="adhesives" data-search="клей thermoblock — инструкция технический паспорт и руководство по применению теплоизоляционных блоков polynor thermoblock.">
           <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
           <div class="card-body">
             <h3>Клей THERMOBLOCK — Инструкция</h3>
             <p>Технический паспорт и руководство по применению теплоизоляционных блоков Polynor Thermoblock.</p>
             <div class="card-actions">
-              <span class="format">JPG</span>
-              <a href="https://www.polynor.ru/uploads/files/products/termoblock_tds_instryk.jpg" target="_blank" rel="noopener noreferrer"
-                 aria-label="Открыть инструкцию: Клей THERMOBLOCK — Инструкция (в новой вкладке)">
-                Открыть инструкцию <span aria-hidden="true">↗</span>
-              </a>
+              <a class="pdf-link" href="manual-thermoblock.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть PDF: Клей THERMOBLOCK (в новой вкладке)">Открыть PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="https://www.polynor.ru/uploads/files/products/termoblock_tds_instryk.jpg" target="_blank" rel="noopener noreferrer"
+                 aria-label="Оригинал JPG: Клей THERMOBLOCK (в новой вкладке)">Оригинал JPG <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="#video-thermoblock">К видео <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </article>
-        <article class="card" data-type="document" data-search="очиститель — инструкция руководство по применению очистителя polynor: поверхности, нормы расхода, меры безопасности.">
+        <article class="card" data-type="tools" data-search="очиститель — инструкция руководство по применению очистителя polynor: поверхности, нормы расхода, меры безопасности.">
           <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
           <div class="card-body">
             <h3>Очиститель — Инструкция</h3>
             <p>Руководство по применению очистителя Polynor: поверхности, нормы расхода, меры безопасности.</p>
             <div class="card-actions">
-              <span class="format">PDF</span>
-              <a href="https://www.polynor.ru/uploads/files/products/cleaner.pdf" target="_blank" rel="noopener noreferrer"
-                 aria-label="Открыть инструкцию: Очиститель — Инструкция (в новой вкладке)">
-                Открыть инструкцию <span aria-hidden="true">↗</span>
-              </a>
+              <a class="pdf-link" href="https://www.polynor.ru/uploads/files/products/cleaner.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть PDF: Очиститель (в новой вкладке)">Открыть PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="#video-gun">К видео <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </article>
-        <article class="card" data-type="document" data-search="пена-цемент — инструкция технический паспорт polynor m-500: состав, физико-механические показатели, условия применения.">
+        <article class="card" data-type="adhesives" data-search="пена-цемент — инструкция технический паспорт polynor m-500: состав, физико-механические показатели, условия применения.">
           <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
           <div class="card-body">
             <h3>Пена-Цемент — Инструкция</h3>
             <p>Технический паспорт Polynor M-500: состав, физико-механические показатели, условия применения.</p>
             <div class="card-actions">
-              <span class="format">PDF</span>
-              <a href="https://www.polynor.ru/uploads/files/products/tds%20%D0%BF%D0%B5%D0%BD%D0%B0-%D1%86%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20polynor%20M-500.pdf" target="_blank" rel="noopener noreferrer"
-                 aria-label="Открыть инструкцию: Пена-Цемент — Инструкция (в новой вкладке)">
-                Открыть инструкцию <span aria-hidden="true">↗</span>
-              </a>
+              <a class="pdf-link" href="https://www.polynor.ru/uploads/files/products/tds%20%D0%BF%D0%B5%D0%BD%D0%B0-%D1%86%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20polynor%20M-500.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть PDF: Пена-Цемент (в новой вкладке)">Открыть PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="#video-m500">К видео <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </article>
-        <article class="card" data-type="document" data-search="утеплитель polynor — инструкция технический паспорт полиуретанового утеплителя polynor: характеристики, показатели теплопроводности.">
+        <article class="card" data-type="insulation" data-search="утеплитель polynor — инструкция технический паспорт полиуретанового утеплителя polynor: характеристики, показатели теплопроводности.">
           <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg></div>
           <div class="card-body">
             <h3>Утеплитель POLYNOR — Инструкция</h3>
             <p>Технический паспорт полиуретанового утеплителя Polynor: характеристики, показатели теплопроводности.</p>
             <div class="card-actions">
-              <span class="format">PDF</span>
-              <a href="https://www.polynor.ru/uploads/files/products/polynor%20tds.pdf" target="_blank" rel="noopener noreferrer"
-                 aria-label="Открыть инструкцию: Утеплитель POLYNOR — Инструкция (в новой вкладке)">
-                Открыть инструкцию <span aria-hidden="true">↗</span>
-              </a>
+              <a class="pdf-link" href="https://www.polynor.ru/uploads/files/products/Polynor_RU.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть PDF: Утеплитель POLYNOR (в новой вкладке)">Открыть PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="https://www.polynor.ru/uploads/files/products/polynor%20tds.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Техпаспорт PDF: Утеплитель POLYNOR (в новой вкладке)">Техпаспорт PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="#video-insulation">К видео <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </article>
-        <article class="card" data-type="video" data-search="клей 60 секунд — инструкция видеоруководство по быстрому применению продукта polynor за 60 секунд. открывается на яндекс диске.">
-          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg></div>
+        <article class="card" data-type="adhesives" data-search="клей 60 секунд — инструкция руководство по быстрому применению продукта polynor за 60 секунд. открывается на яндекс диске.">
+          <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8m-8 4h8"/></svg></div>
           <div class="card-body">
             <h3>Клей 60 СЕКУНД — Инструкция</h3>
-            <p>Видеоруководство по быстрому применению продукта Polynor за 60 секунд. Открывается на Яндекс Диске.</p>
+            <p>Руководство по быстрому применению продукта Polynor за 60 секунд. Открывается на Яндекс Диске.</p>
             <div class="card-actions">
-              <span class="format">Видео</span>
-              <a href="https://disk.yandex.ru/i/o5ska-nbtdMy5Q" target="_blank" rel="noopener noreferrer"
-                 aria-label="Смотреть видео: Клей 60 СЕКУНД — Инструкция (в новой вкладке)">
-                Смотреть видео <span aria-hidden="true">↗</span>
-              </a>
+              <a class="pdf-link" href="manual-60sec.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть PDF: Клей 60 СЕКУНД (в новой вкладке)">Открыть PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="https://disk.yandex.ru/i/o5ska-nbtdMy5Q" target="_blank" rel="noopener noreferrer"
+                 aria-label="Яндекс Диск: Клей 60 СЕКУНД (в новой вкладке)">Яндекс Диск <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="#video-60sec">К видео <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </article>
-        <article class="card" data-type="document" data-search="клей fixo — инструкция полное руководство по применению монтажного клея-пены polynor fixo: основания, расход, ограничения.">
+        <article class="card" data-type="adhesives" data-search="клей fixo — инструкция полное руководство по применению монтажного клея-пены polynor fixo: основания, расход, ограничения.">
           <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
           <div class="card-body">
             <h3>Клей FIXO — Инструкция</h3>
             <p>Полное руководство по применению монтажного клея-пены Polynor Fixo: основания, расход, ограничения.</p>
             <div class="card-actions">
-              <span class="format">PDF</span>
-              <a href="https://www.polynor.ru/uploads/files/products/fixo.pdf" target="_blank" rel="noopener noreferrer"
-                 aria-label="Открыть инструкцию: Клей FIXO — Инструкция (в новой вкладке)">
-                Открыть инструкцию <span aria-hidden="true">↗</span>
-              </a>
+              <a class="pdf-link" href="https://www.polynor.ru/uploads/files/products/fixo.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть PDF: Клей FIXO (в новой вкладке)">Открыть PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="#video-fixo">К видео <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </article>
-        <article class="card" data-type="document" data-search="инструкция для пистолета для пены пистолет монтажная пена">
+        <article class="card" data-type="tools" data-search="инструкция для пистолета для пены пистолет монтажная пена">
           <div class="card-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M3 7h11l3 3-4 4-3-3H3z"/><path d="M13 14l-2 7M17 10l4-4M5 14v5h5"/></svg></div>
           <div class="card-body">
             <h3>Пистолет для монтажной пены — Инструкция</h3>
             <p>Инструкция по использованию пистолета для монтажной пены. Документ размещён на Google Drive.</p>
             <div class="card-actions">
-              <span class="format">Google Drive</span>
-              <a href="https://drive.google.com/file/d/1KIV4ndA9Bevt9zpJBy5jEEWMaS9DdbQb/view?usp=sharing" target="_blank" rel="noopener noreferrer"
-                 aria-label="Открыть инструкцию: Пистолет для монтажной пены — Инструкция (в новой вкладке)">
-                Открыть инструкцию <span aria-hidden="true">↗</span>
-              </a>
+              <a class="pdf-link" href="manual-gun.pdf" target="_blank" rel="noopener noreferrer"
+                 aria-label="Открыть PDF: Пистолет для монтажной пены (в новой вкладке)">Открыть PDF <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="https://drive.google.com/file/d/1KIV4ndA9Bevt9zpJBy5jEEWMaS9DdbQb/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                 aria-label="Google Drive: Пистолет для монтажной пены (в новой вкладке)">Google Drive <span aria-hidden="true">↗</span></a>
+              <a class="source-link" href="#video-gun">К видео <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </article>
@@ -158,6 +157,131 @@
       <div class="empty" id="catalog-empty" hidden>
         <p>Подходящих инструкций нет.</p>
         <button type="button" id="catalog-reset">Сбросить поиск и фильтр</button>
+      </div>
+    </section>
+
+    <section class="shell videos" id="videos" aria-labelledby="videos-title">
+      <div class="section-head">
+        <h2 id="videos-title">Видеоинструкции</h2>
+      </div>
+      <div class="video-grid">
+        <article class="video-card" id="video-insulation" tabindex="-1">
+          <div class="video-stage">
+            <a class="video-poster" href="https://rutube.ru/video/3bd2bdee4188f630a0662072a8e11603/" data-embed="https://rutube.ru/play/embed/3bd2bdee4188f630a0662072a8e11603/" data-title="Утепление мансарды"
+               aria-label="Воспроизвести: Утепление мансарды">
+              <img src="video-insulation.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 5 11 7-11 7z"/></svg></span>
+            </a>
+          </div>
+          <div class="video-caption">
+            <h3>Утепление мансарды</h3>
+            <p>Утеплитель POLYNOR · POLYNOR OFFICIAL</p>
+            <a href="https://rutube.ru/video/3bd2bdee4188f630a0662072a8e11603/" target="_blank" rel="noopener noreferrer">Открыть на RUTUBE <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="video-card" id="video-m500" tabindex="-1">
+          <div class="video-stage">
+            <a class="video-poster" href="https://rutube.ru/video/8045d560704f3f4157bc1e1a3e397469/" data-embed="https://rutube.ru/play/embed/8045d560704f3f4157bc1e1a3e397469/" data-title="Кладка на пену-цемент M-500"
+               aria-label="Воспроизвести: Кладка на пену-цемент M-500">
+              <img src="video-m500.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 5 11 7-11 7z"/></svg></span>
+            </a>
+          </div>
+          <div class="video-caption">
+            <h3>Кладка на пену-цемент M-500</h3>
+            <p>Пена-цемент · POLYNOR OFFICIAL</p>
+            <a href="https://rutube.ru/video/8045d560704f3f4157bc1e1a3e397469/" target="_blank" rel="noopener noreferrer">Открыть на RUTUBE <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="video-card" id="video-thermoblock" tabindex="-1">
+          <div class="video-stage">
+            <a class="video-poster" href="https://www.youtube.com/watch?v=H8CpF8LbOks" data-embed="https://www.youtube-nocookie.com/embed/H8CpF8LbOks" data-title="Сравнение кладочных клеёв"
+               aria-label="Воспроизвести: Сравнение кладочных клеёв">
+              <img src="video-thermoblock.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 5 11 7-11 7z"/></svg></span>
+            </a>
+          </div>
+          <div class="video-caption">
+            <h3>Сравнение кладочных клеёв</h3>
+            <p>THERMOBLOCK · Подборка Polynor</p>
+            <a href="https://www.youtube.com/watch?v=H8CpF8LbOks" target="_blank" rel="noopener noreferrer">Открыть на YouTube <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="video-card" id="video-fixo" tabindex="-1">
+          <div class="video-stage">
+            <a class="video-poster" href="https://www.youtube.com/watch?v=a7G523r331k" data-embed="https://www.youtube-nocookie.com/embed/a7G523r331k" data-title="Клей FIXO в действии"
+               aria-label="Воспроизвести: Клей FIXO в действии">
+              <img src="video-fixo.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 5 11 7-11 7z"/></svg></span>
+            </a>
+          </div>
+          <div class="video-caption">
+            <h3>Клей FIXO в действии</h3>
+            <p>FIXO · Демонстрация применения</p>
+            <a href="https://www.youtube.com/watch?v=a7G523r331k" target="_blank" rel="noopener noreferrer">Открыть на YouTube <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="video-card" id="video-60sec" tabindex="-1">
+          <div class="video-stage">
+            <a class="video-poster" href="https://ok.ru/video/7837233515217" data-embed="https://ok.ru/videoembed/7837233515217" data-title="Универсальный клей «60 секунд»"
+               aria-label="Воспроизвести: Универсальный клей «60 секунд»">
+              <img src="video-60sec.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 5 11 7-11 7z"/></svg></span>
+            </a>
+          </div>
+          <div class="video-caption">
+            <h3>Универсальный клей «60 секунд»</h3>
+            <p>60 СЕКУНД · Демонстрация продукта</p>
+            <a href="https://ok.ru/video/7837233515217" target="_blank" rel="noopener noreferrer">Открыть на ОК <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="video-card" id="video-gun" tabindex="-1">
+          <div class="video-stage">
+            <a class="video-poster" href="https://www.youtube.com/watch?v=H4FNU2L8_5I" data-embed="https://www.youtube-nocookie.com/embed/H4FNU2L8_5I" data-title="Как промыть монтажный пистолет"
+               aria-label="Воспроизвести: Как промыть монтажный пистолет">
+              <img src="video-gun.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 5 11 7-11 7z"/></svg></span>
+            </a>
+          </div>
+          <div class="video-caption">
+            <h3>Как промыть монтажный пистолет</h3>
+            <p>Уход за инструментом · На примере очистителя KUDO</p>
+            <a href="https://www.youtube.com/watch?v=H4FNU2L8_5I" target="_blank" rel="noopener noreferrer">Открыть на YouTube <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell products" id="new" aria-labelledby="products-title">
+      <h2 id="products-title">Новинки на Wildberries</h2>
+      <div class="product-grid">
+        <article class="product-card">
+          <img class="product-cover" src="novinka-fixo.jpg" width="900" height="1200" alt="" loading="lazy" decoding="async">
+          <div class="product-details">
+            <h3>Комплект для отделки Polynor FIXO</h3>
+            <p>Два баллона клея FIXO и пистолет для нанесения.</p>
+            <a href="https://www.wildberries.ru/catalog/2271013341/detail.aspx" target="_blank" rel="noopener noreferrer"
+               aria-label="На Wildberries: Комплект для отделки Polynor FIXO (в новой вкладке)">На Wildberries <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="product-card">
+          <img class="product-cover" src="novinka-thermoblock.jpg" width="900" height="1200" alt="" loading="lazy" decoding="async">
+          <div class="product-details">
+            <h3>Комплект для кладки Polynor THERMOBLOCK</h3>
+            <p>Два баллона клея для кладки и пистолет для нанесения.</p>
+            <a href="https://www.wildberries.ru/catalog/2270949195/detail.aspx" target="_blank" rel="noopener noreferrer"
+               aria-label="На Wildberries: Комплект для кладки Polynor THERMOBLOCK (в новой вкладке)">На Wildberries <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="product-card">
+          <img class="product-cover" src="novinka-gun.jpg" width="900" height="1200" alt="" loading="lazy" decoding="async">
+          <div class="product-details">
+            <h3>Пистолет для нанесения пены</h3>
+            <p>Для монтажной пены и напыляемого утеплителя. Подача регулируется.</p>
+            <a href="https://www.wildberries.ru/catalog/341875759/detail.aspx" target="_blank" rel="noopener noreferrer"
+               aria-label="На Wildberries: Пистолет для нанесения пены (в новой вкладке)">На Wildberries <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
       </div>
     </section>
 

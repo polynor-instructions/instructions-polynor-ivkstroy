@@ -33,7 +33,7 @@
 
     empty.hidden = found > 0
     var filtered = query || selection !== 'all'
-    count.textContent = filtered ? 'Найдено: ' + found + ' из ' + cards.length : cards.length + ' материалов'
+    count.textContent = filtered ? 'Найдено: ' + found + ' из ' + cards.length : cards.length + ' позиций'
   }
 
   function selectFilter(value) {
@@ -60,4 +60,28 @@
 
   update()
   tools.hidden = false
+}())
+
+;(function () {
+  var posters = document.querySelectorAll('.video-poster[data-embed]')
+  var active = null
+
+  Array.prototype.forEach.call(posters, function (poster) {
+    poster.addEventListener('click', function (event) {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return
+      event.preventDefault()
+
+      if (active) active.frame.parentNode.replaceChild(active.poster, active.frame)
+      var frame = document.createElement('iframe')
+      var url = poster.getAttribute('data-embed')
+      frame.src = url + (url.indexOf('?') === -1 ? '?' : '&') + 'autoplay=1'
+      frame.title = poster.getAttribute('data-title')
+      frame.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen')
+      frame.setAttribute('allowfullscreen', '')
+      frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin')
+      poster.parentNode.replaceChild(frame, poster)
+      active = { frame: frame, poster: poster }
+      frame.focus()
+    })
+  })
 }())
